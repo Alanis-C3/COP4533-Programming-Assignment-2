@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 #include <sstream>
+#include "LRU.cpp"
 using namespace std;
 
 int main() {
@@ -42,7 +43,11 @@ int main() {
 	cout << "m : " << m << endl;
 	for(int i = 0; i <= m; i++){
     cout << cacheInput[i] << endl;
+
+
 }
+	int missed = LRU(cacheInput, cacheCapacity);
+	cout << "LRU misses : " << missed<<endl;
 
 
 return 0;}
