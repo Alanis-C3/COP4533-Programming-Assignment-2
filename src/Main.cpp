@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 #include <sstream>
+#include "LRU.cpp"
 #include "generator.cpp"
 using namespace std;
 
@@ -11,15 +12,15 @@ int main() {
     vector<int> kMaxValues = {0, 8, 64, 512};
     vector<string> fileList = generator(kMaxValues);
 
-    for (string file : fileList){
+    for (string file : fileList) {
         vector<string> cacheInput;
         int cacheCapacity;
         int m;
         ifstream inFile(file);
         if (!inFile.is_open()){
-                cout << "Error opening file" << endl;
-                return -1;
-            }
+            cout << "Error opening file" << endl;
+            return -1;
+        }
         string km;
         string strM;
         string strK;
@@ -42,9 +43,9 @@ int main() {
             cacheInput.push_back(str);
         }
 
-        cout << "cache capacity (k): " << cacheCapacity << endl;
-        cout << "number of requests (m): " << m << endl;
-        for(int i = 0; i < m; i++) {
+        cout << "cache capacity: " << cacheCapacity << endl;
+        cout << "m : " << m << endl;
+        for(int i = 0; i <= m; i++) {
             cout << cacheInput[i] << endl;
         }
     }
