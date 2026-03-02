@@ -6,6 +6,7 @@
 #include <sstream>
 #include "LRU.cpp"
 #include "generator.cpp"
+#include "FIFO.cpp"
 using namespace std;
 
 int main() {
@@ -48,6 +49,8 @@ int main() {
         for(int i = 0; i <= m; i++) {
             cout << cacheInput[i] << endl;
         }
+        int misses = fifo(cacheCapacity, m, cacheInput);
+        cout << "miss count: " << misses<< endl;
     }
     return 0;
 }
