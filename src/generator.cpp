@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include <cstdlib>
 #include <random>
 
 using namespace std;
@@ -17,7 +16,7 @@ vector<string> generator(vector<int> kMaxValues){ // = {0, 8, 64, 512}
     for (int i = 1; i<kMaxValues.size(); i++){
         uniform_int_distribution<> distK(kMaxValues[i-1]+1, kMaxValues[i]);
         int k = distK(gen);
-        uniform_int_distribution<> distM(k, k*10); // for k = 8, m will be between 8 and 80
+        uniform_int_distribution<> distM(k, k*5); // for k = 8, m will be between 8 and 80
         int m = distM(gen);
 
 
@@ -32,7 +31,9 @@ vector<string> generator(vector<int> kMaxValues){ // = {0, 8, 64, 512}
             outFile << to_string(k) << " " << to_string(m)<< "\n";
             // second line of every file is "r1 r2... rm"
             for (int j = 1; j<=m; j++){
-                outFile << "r" << to_string(j);
+                uniform_int_distribution<> distR(1, m);
+                int r = distR(gen);
+                outFile << "r" << to_string(r);
                 if (j != m) outFile << " "; // add a space if it's not the last value
             }
         }
