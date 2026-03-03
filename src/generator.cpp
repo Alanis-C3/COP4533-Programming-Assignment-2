@@ -16,7 +16,7 @@ vector<string> generator(vector<int> kMaxValues){ // = {0, 8, 64, 512}
     for (int i = 1; i<kMaxValues.size(); i++){
         uniform_int_distribution<> distK(kMaxValues[i-1]+1, kMaxValues[i]);
         int k = distK(gen);
-        uniform_int_distribution<> distM(k, k*5); // for k = 8, m will be between 8 and 80
+        uniform_int_distribution<> distM(k, max(k*5, 50)); // m will be at min 50 and at max k*5
         int m = distM(gen);
 
 
