@@ -25,6 +25,7 @@ cmake --build .
 * Time complexity for FIFO = O(m)
 * Time complexity for LRU = O(m*k)
 * Time complexity for OPTFF = O(m*log(k))
+* All output data is printed in the terminal
 
 
 # **Written Component**
