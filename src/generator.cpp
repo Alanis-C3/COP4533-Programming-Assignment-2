@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<string> generator(vector<int> kMaxValues){ // = {0, 8, 64, 512}
+vector<string> generator(vector<int> kMaxValues){ 
     vector<string> fileList;
     string fileName = "";
     mt19937 gen(random_device{}());
@@ -16,7 +16,7 @@ vector<string> generator(vector<int> kMaxValues){ // = {0, 8, 64, 512}
     for (int i = 1; i<kMaxValues.size(); i++){
         uniform_int_distribution<> distK(kMaxValues[i-1]+1, kMaxValues[i]);
         int k = distK(gen);
-        uniform_int_distribution<> distM(k, max(k*5, 50)); // m will be at min 50 and at max k*5
+        uniform_int_distribution<> distM(50, max(k*5, 60)); // m will be at min 50 and at max k*5
         int m = distM(gen);
 
 
