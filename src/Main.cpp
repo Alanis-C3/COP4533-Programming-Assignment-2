@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <fstream>
-#include <map>
 #include <string>
 #include <sstream>
 #include "LRU.cpp"
 #include "generator.cpp"
 #include "FIFO.cpp"
+#include "OPTFF.cpp"
 using namespace std;
 
 int main() {
@@ -47,10 +46,15 @@ int main() {
         cout << "cache capacity: " << cacheCapacity << endl;
         cout << "m : " << m << endl;
         for(int i = 0; i <= m; i++) {
-            cout << cacheInput[i] << endl;
+            cout << cacheInput[i] << " ";
         }
-        int misses = fifo(cacheCapacity, m, cacheInput);
-        cout << "miss count: " << misses<< endl;
+        cout << endl;
+
+        cout << "FIFO misses: " << FIFO(cacheInput, cacheCapacity)<< endl;
+        cout << "LRU misses: " << LRU(cacheInput, cacheCapacity)<< endl;
+        cout << "OPTFF misses: " << OPTFF(cacheInput, cacheCapacity)<< endl;
+
+
     }
     return 0;
 }
