@@ -1,14 +1,22 @@
 # Contributors
-Alanis Castillo 18144408
+Alanis Castillo 18144408 
+
 Graciela Strand 80178234
+
 
 # Compile and Build Instructions
 cd path\to\project
+
 mkdir build
+
 cd build
+
 cmake ..
+
 cmake --build .
+
 .\main.exe
+
 
 # Assumptions
 * Cache is initialized as empty
@@ -17,6 +25,7 @@ cmake --build .
 * Time complexity for FIFO = O(m)
 * Time complexity for LRU = O(m*k)
 * Time complexity for OPTFF = O(m*log(k))
+
 
 # **Written Component**
 ## **Question 1: Empirical Comparison**  
