@@ -5,19 +5,19 @@
 #include <unordered_set>
 using namespace std;
 
-int fifo(int k, int m, vector<string> requests){
+int FIFO(vector<string> requests, int k){
     int misses = 0;
     queue<string> cacheQ;
     unordered_set<string> cacheValues;
 
-    for (int i=0; i<m; i++){
+    for (int i=0; i<requests.size(); i++){
         // iteration syntax taken from https://www.geeksforgeeks.org/cpp/unordered_set-in-cpp-stl/
         auto it = cacheValues.find(requests[i]);
-        if (it != cacheValues.end()){ // found!
-            //cout << "Hit " << requests[i] << endl;
+        if (it != cacheValues.end()){
+            // HIT
             continue;
-        } else {  // miss
-            //cout << "Miss " << requests[i] << endl;
+        } else {
+            // MISS
             misses++;
             if (cacheQ.size()==k){
                 // max capacity of queue reached
